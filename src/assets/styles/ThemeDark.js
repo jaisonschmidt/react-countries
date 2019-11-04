@@ -1,4 +1,4 @@
-const StyledVariables = {
+const ThemeDark = {
   $prcolor: "#39ace7",
   $secolor: "#0784b5",
   $thcolor: "#414c50",
@@ -6,4 +6,4 @@ const StyledVariables = {
   $sicolor: "#192428"
 };
 
-export default StyledVariables;
+export default ThemeDark;

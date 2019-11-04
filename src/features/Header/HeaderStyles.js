@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
-const HeaderS = styled.header`
+export const HeaderWrap = styled.header`
   background: #192428;
-  color: white;
+  color: ${props => props.theme.$secolor};
   padding: 12px;
 `;
-
-export { HeaderS };

@@ -1,6 +1,6 @@
 import React from "react";
-import { HeaderS } from "./HeaderStyle";
+import { HeaderWrap } from "./HeaderStyles";
 
-const Header = () => <HeaderS>Hello!</HeaderS>;
+const Header = () => <HeaderWrap>Hello!</HeaderWrap>;
 
 export default Header;

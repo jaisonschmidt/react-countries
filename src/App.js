@@ -13,10 +13,20 @@ import ThemeDark from "./assets/styles/ThemeDark";
 /* CSS Global */
 import GlobalStyles from "./assets/styles/Global";
 
+/* theme options */
+let Theme = [
+  {
+    title: "Dark",
+    scheme: ThemeDark
+  }
+];
+
+let ThemeActive = 0;
+
 function App() {
   document.title = Config.PAGE_TITLE;
   return (
-    <ThemeProvider theme={ThemeDark}>
+    <ThemeProvider theme={Theme[ThemeActive]}>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" render={() => <Home />} />

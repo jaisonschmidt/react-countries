@@ -1,0 +1,1 @@
+export const INCREMENT_FAV = 'INCREMENT_FAV';

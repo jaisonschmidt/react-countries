@@ -10,7 +10,7 @@ const Header = () => (
       <div>CountryAPI</div>
       <Flex>
         <Flex>
-          <div>Change to: </div>
+          <div>Tema:</div>
           <div>
             <ButtonRound>Light</ButtonRound>
           </div>

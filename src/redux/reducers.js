@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
-import { clickReducer } from './reducers/clickReducer'
+import { addFavReducer } from './reducers/addFavReducer'
+import { setCountriesReducer } from './reducers/setCountriesReducer'
 
 export const Reducers = combineReducers({
-  clickReducer
+  addFavReducer,
+  setCountriesReducer
 });

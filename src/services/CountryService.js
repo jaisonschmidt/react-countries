@@ -1,10 +1,8 @@
-import Axios from "axios";
-import Config from "config";
+import Axios from "axios"
+import { Config } from "../config"
 
-class CountryService {
+export class CountryService {
   async getAllCountriesFromApi() {
-    return Axios.get(`${Config.URL_API}/all/`).then(response => response.data);
+    return await Axios.get(`${Config.URL_API}/all/`)
   }
 }
-
-export default CountryService;

@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 export const MiniCartWrap = styled.div`
+  background: none;
+  border: none;
   margin-left: 12px;
   position: relative;
 `;
 
 export const HearthWrap = styled.div`
+  color: ${props => props.theme.scheme.$prcolor}
   font-size: 30px;
 `;
 

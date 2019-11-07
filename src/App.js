@@ -1,17 +1,23 @@
-import React from "react";
-import { ThemeProvider } from "styled-components";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React, { useEffect } from "react"
 
-import Config from "./config";
+import { Config } from "./config"
+import { ThemeProvider } from "styled-components"
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { CountryService } from './services/CountryService'
+
+// redux
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux';
+import { loadCountries } from './redux/actions/actions';
 
 /* Pages */
-import Home from "./pages/Home/Home";
+import Home from "./pages/Home/Home"
 
 /* theme */
-import ThemeDark from "./assets/styles/ThemeDark";
+import ThemeDark from "./assets/styles/ThemeDark"
 
 /* CSS Global */
-import GlobalStyles from "./assets/styles/Global";
+import GlobalStyles from "./assets/styles/Global"
 
 /* theme options */
 let Theme = [
@@ -19,11 +25,29 @@ let Theme = [
     title: "Dark",
     scheme: ThemeDark
   }
-];
+]
 
-let ThemeActive = 0;
+let ThemeActive = 0
 
-function App() {
+const App = props => {
+
+  const { loadCountries } = props;
+
+  // hook
+  useEffect(() => {
+    // Load countries
+    const countryService = new CountryService();
+    
+    countryService
+      .getAllCountriesFromApi()
+      .then(res => {
+        console.log(res.data)
+        loadCountries(res.data)
+      })
+    
+    return () => { console.log('Destroy App'); }
+  }, [loadCountries])
+
   document.title = Config.PAGE_TITLE;
   return (
     <ThemeProvider theme={Theme[ThemeActive]}>
@@ -34,11 +58,14 @@ function App() {
             path="/country/:numericcode"
             render={() => <div>detalhe</div>}
           />
+          <Route path="/favs" render={() => <div>Favoritos</div>} />
         </Switch>
       </BrowserRouter>
       <GlobalStyles />
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
+const mapDispatchToProps = dispatch => bindActionCreators({ loadCountries }, dispatch);
+
+export default connect(null, mapDispatchToProps)(App);

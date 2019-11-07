@@ -1,8 +1,18 @@
-import { INCREMENT_FAV } from './actionTypes'
+import { 
+  ADD_FAV,
+  LOAD_COUNTRIES
+} from './actionTypes'
 
-export const incrementFavs = countFavs => {
+export const addFav = fav => {
   return {
-    type: INCREMENT_FAV,
-    countFavs
+    type: ADD_FAV,
+    fav
+  }
+}
+
+export const loadCountries = countries => {
+  return {
+    type: LOAD_COUNTRIES,
+    countries
   }
 }

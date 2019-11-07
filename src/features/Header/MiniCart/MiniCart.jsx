@@ -1,29 +1,27 @@
 import React from "react"
-
-import { bindActionCreators } from 'redux'
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
-
-import { incrementFavs } from '../../../redux/actions/actions'
-
 import { MiniCartWrap, HearthWrap, ContFavs } from "./MiniCartStyles";
 
 const MiniCart = props => {
-  const { countFavs, incrementFavs } = props;
+  const { favs } = props;
   return (
-    <button onClick={() => incrementFavs(countFavs) }>
+    <Link to="/favs">
       <MiniCartWrap>
-      <HearthWrap>&#10084;</HearthWrap>
-      <ContFavs>{countFavs}</ContFavs>
+        <HearthWrap>&#10084;</HearthWrap>
+        <ContFavs>{favs.length}</ContFavs>
       </MiniCartWrap>
-    </button>
+    </Link>    
   )
-  
 };
 
 const mapStateToProps = store => ({
-  countFavs: store.clickReducer.countFavs
+  favs: store.addFavReducer.favs
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ incrementFavs }, dispatch);
+// import { bindActionCreators } from 'redux'
+// import { incrementFavs } from '../../../redux/actions/actions'
+// const mapDispatchToProps = dispatch => bindActionCreators({ incrementFavs }, dispatch);
+// export default connect(mapStateToProps, mapDispatchToProps)(MiniCart);
 
-export default connect(mapStateToProps, mapDispatchToProps)(MiniCart);
+export default connect(mapStateToProps)(MiniCart);

@@ -17,7 +17,7 @@ export default createGlobalStyle`
         height: 100%;
     }
     body {
-        background: ${ props => props.theme.scheme.$ficolor }
+        background: ${props => props.theme.scheme.$ficolor};
         -webkit-font-smoothing: antialiased;
     }
     body, input, button {

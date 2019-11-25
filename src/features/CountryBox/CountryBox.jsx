@@ -7,10 +7,10 @@ const CountryBox = props => {
   } = props;
   return (
     <CountryBoxWrap>
-      <div className="image-wrap">
-        <img src={flag} alt="" />
+      <div className="imagewrap">
+        <img src={flag} alt="" className="flag" />
       </div>
-      {name}
+      <div className="countryname">{name}</div>
     </CountryBoxWrap>
   );
 };

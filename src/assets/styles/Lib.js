@@ -1,4 +1,4 @@
-import { Flex } from "./Atomic/Grid";
+import { Flex, Container } from "./Atomic/Grid";
 import { Button, ButtonRound } from "./Atomic/Button";
 
-export { Flex, Button, ButtonRound };
+export { Flex, Button, ButtonRound, Container };

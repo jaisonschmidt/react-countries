@@ -6,3 +6,11 @@ export const Flex = styled.div`
   justify-content: space-between;
   width: ${props => (props.fullwidth ? "100%" : "auto")};
 `;
+
+export const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1170px;
+  width: 100%;
+`;

@@ -1,18 +1,22 @@
-import React from 'react';
-
-/*
-- Criar countryListWrap 
-- Melhorar o IF, esta confuso
-*/
+import React from "react";
+import CountryBox from "../CountryBox/CountryBox";
+import { Container } from "../../assets/styles/Lib";
+import { LoadingCountries } from "./CountryListStyles";
 
 const CountryList = props => {
-  const { countries } = props
+  const { countries } = props;
   return (
-    <div>
-      {countries.length > 0 && countries.map( (country, key) => <div key={key}>{country.name}</div>)}
-      {countries.length === 0 && <div>Carregando países</div>}
-    </div>
-  )
-}
+    <Container>
+      {countries.length > 0 &&
+        countries.map((country, key) => (
+          <CountryBox key={key} country={country} />
+        ))}
+
+      {countries.length === 0 && (
+        <LoadingCountries>Carregando países...</LoadingCountries>
+      )}
+    </Container>
+  );
+};
 
 export default CountryList;

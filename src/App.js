@@ -10,8 +10,6 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { loadCountries } from "./redux/actions/actions";
 
-// TODO salvar store no localstorage
-
 /* Pages */
 import Home from "./pages/Home/Home";
 import Detail from "./pages/Detail/Detail";

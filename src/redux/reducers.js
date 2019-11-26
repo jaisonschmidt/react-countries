@@ -1,8 +1,10 @@
-import { combineReducers } from 'redux'
-import { addFavReducer } from './reducers/addFavReducer'
-import { setCountriesReducer } from './reducers/setCountriesReducer'
+import { combineReducers } from "redux";
+import { favReducer } from "./reducers/favReducer";
+import { setCountriesReducer } from "./reducers/setCountriesReducer";
+import { changeThemeReducer } from "./reducers/changeThemeReducer";
 
 export const Reducers = combineReducers({
-  addFavReducer,
-  setCountriesReducer
+  favReducer,
+  setCountriesReducer,
+  changeThemeReducer
 });

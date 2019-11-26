@@ -10,34 +10,18 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { loadCountries } from "./redux/actions/actions";
 
-// TODO criar ação de adicionar a favoritos
-// TODO verificar se o country esta nos favoritos (box)
-// TODO verificar se o country esta nos favoritos (country detail)
-// TODO criar tela de countries favoritos
-// TODO criar button de skin
+// TODO salvar store no localstorage
 
 /* Pages */
 import Home from "./pages/Home/Home";
 import Detail from "./pages/Detail/Detail";
-
-/* theme */
-import ThemeDark from "./assets/styles/ThemeDark";
+import Favs from "./pages/Favs/Favs";
 
 /* CSS Global */
 import GlobalStyles from "./assets/styles/Global";
 
-/* theme options */
-let Theme = [
-  {
-    title: "Dark",
-    scheme: ThemeDark
-  }
-];
-
-let ThemeActive = 0;
-
 const App = props => {
-  const { loadCountries } = props;
+  const { theme, loadCountries } = props;
 
   // hook
   useEffect(() => {
@@ -45,7 +29,7 @@ const App = props => {
     const countryService = new CountryService();
 
     countryService.getAllCountriesFromApi().then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       loadCountries(res.data);
     });
 
@@ -55,16 +39,17 @@ const App = props => {
   }, [loadCountries]);
 
   document.title = Config.PAGE_TITLE;
+
   return (
-    <ThemeProvider theme={Theme[ThemeActive]}>
+    <ThemeProvider theme={{ scheme: theme.scheme }}>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" render={() => <Home />} />
           <Route
             path="/country/:numericcode"
-            render={props => <Detail { ...props } />}
+            render={props => <Detail {...props} />}
           />
-          <Route path="/favs" render={() => <div>Favoritos</div>} />
+          <Route path="/favs" render={() => <Favs />} />
         </Switch>
       </BrowserRouter>
       <GlobalStyles />
@@ -75,4 +60,8 @@ const App = props => {
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ loadCountries }, dispatch);
 
-export default connect(null, mapDispatchToProps)(App);
+const mapStateToProps = store => ({
+  theme: store.changeThemeReducer.theme
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

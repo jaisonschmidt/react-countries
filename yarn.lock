@@ -8631,6 +8631,11 @@ recursive-readdir@2.2.2:
   dependencies:
     minimatch "3.0.4"
 
+redux-localstore@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/redux-localstore/-/redux-localstore-0.4.0.tgz#54b3f346ba3278a24e9f4b21d441d603f9f22681"
+  integrity sha512-QRrqUhOPaqrsS4FVWIpsKnBnaHH/QKsh9qbsXl+wp+sht/TwamLMQQZN6gQcoh4uWxpBk+eWXMAkNSk9P+xglA==
+
 redux@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"

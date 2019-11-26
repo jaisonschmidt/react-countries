@@ -9,13 +9,14 @@ export const Button = styled.button`
 
 export const ButtonRound = styled.button`
   background: none;
-  border: 1px solid ${props => props.theme.scheme.$prcolor};
+  border: 1px solid ${props => props.theme.scheme.$textcolor};
   border-radius: 5px;
-  color: ${props => props.theme.scheme.$prcolor};
+  color: ${props => props.theme.scheme.$textcolor};
   cursor: pointer;
   display: inline-block;
-  margin-left: ${props => (props.marginLeft ? props.marginLeft : "8px")};
+  margin-bottom: ${props => (props.marginbottom ? props.marginbottom : "0")};
+  margin-left: ${props => (props.marginleft ? props.marginleft : "0")};
   margin-right: 8px;
-  margin-top: ${props => (props.marginTop ? props.marginTop : "0")};
+  margin-top: ${props => (props.margintop ? props.margintop : "0")};
   padding: 4px 8px;
 `;

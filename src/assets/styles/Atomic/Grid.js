@@ -9,9 +9,11 @@ export const Flex = styled.div`
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: ${props => (props.direction ? props.direction : "row")};
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1170px;
+  padding: 0 1rem;
   width: 100%;
 `;

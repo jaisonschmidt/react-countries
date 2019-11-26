@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 import Header from "../../features/Header/Header";
-import DetailView from "./DetailView";
-import { connect } from 'react-redux';
+import CountryDetail from "../../features/CountryDetail/CountryDetail";
 import { Container } from "../../assets/styles/Lib";
 
+// redux
+import { connect } from "react-redux";
 
 const Detail = props => {
   const { countries } = props;
@@ -11,12 +12,18 @@ const Detail = props => {
     <>
       <Header />
       <Container>
-        {countries.length > 0 && <DetailView country={countries.find( country => country.numericCode === props.match.params.numericcode )} />}
-        {countries.length == 0 && <div>Carregando...</div>}
+        {countries.length > 0 && (
+          <CountryDetail
+            country={countries.find(
+              country => country.numericCode === props.match.params.numericcode
+            )}
+          />
+        )}
+        {countries.length === 0 && <div>Carregando...</div>}
       </Container>
     </>
   );
-}
+};
 
 const mapStateToProps = store => ({
   countries: store.setCountriesReducer.countries

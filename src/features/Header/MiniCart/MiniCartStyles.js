@@ -8,7 +8,7 @@ export const MiniCartWrap = styled.div`
 `;
 
 export const HearthWrap = styled.div`
-  color: ${props => props.theme.scheme.$prcolor}
+  color: ${props => props.theme.scheme.$textcolor};
   font-size: 30px;
 `;
 

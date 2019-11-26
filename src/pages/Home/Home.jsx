@@ -1,18 +1,22 @@
 import React from "react";
 
-import { connect } from 'react-redux';
-
 import Header from "../../features/Header/Header";
 import CountryList from "../../features/CountryList/CountryList";
+
+import { Container } from "../../assets/styles/Lib";
+
+import { connect } from "react-redux";
 
 const Home = props => {
   const { countries } = props;
   return (
     <>
       <Header />
-      <CountryList countries={countries} />
+      <Container>
+        <CountryList countries={countries} />
+      </Container>
     </>
-  )
+  );
 };
 
 const mapStateToProps = store => ({

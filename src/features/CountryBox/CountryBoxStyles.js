@@ -43,5 +43,9 @@ export const CountryBoxWrap = styled.div`
     padding: 1rem;
     text-align: left;
     width: 100%;
+
+    &:disabled {
+      opacity: 0.2;
+    }
   }
 `;

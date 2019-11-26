@@ -1,8 +1,11 @@
-import { LOAD_COUNTRIES } from '../actions/actionTypes'
+import { LOAD_COUNTRIES } from "../actions/actionTypes";
+import { defineState } from "redux-localstore";
 
-const initialState = {
-  countries : []
-}
+const defaultState = {
+  countries: []
+};
+
+const initialState = defineState(defaultState)("setCountriesReducer");
 
 export const setCountriesReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -11,7 +14,7 @@ export const setCountriesReducer = (state = initialState, action) => {
         ...state,
         countries: action.countries
       };
-      default:
-        return state;
+    default:
+      return state;
   }
-} 
+};

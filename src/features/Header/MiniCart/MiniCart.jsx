@@ -1,6 +1,6 @@
-import React from "react"
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux'
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import { MiniCartWrap, HearthWrap, ContFavs } from "./MiniCartStyles";
 
 const MiniCart = props => {
@@ -11,12 +11,12 @@ const MiniCart = props => {
         <HearthWrap>&#10084;</HearthWrap>
         <ContFavs>{favs.length}</ContFavs>
       </MiniCartWrap>
-    </Link>    
-  )
+    </Link>
+  );
 };
 
 const mapStateToProps = store => ({
-  favs: store.addFavReducer.favs
+  favs: store.favReducer.favs
 });
 
 // import { bindActionCreators } from 'redux'

@@ -10,9 +10,6 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { loadCountries } from "./redux/actions/actions";
 
-// TODO melhorar responsividade dos boxes
-// TODO adicionar button de favorito no box
-// TODO criar página de country detail
 // TODO criar ação de adicionar a favoritos
 // TODO verificar se o country esta nos favoritos (box)
 // TODO verificar se o country esta nos favoritos (country detail)
@@ -21,6 +18,7 @@ import { loadCountries } from "./redux/actions/actions";
 
 /* Pages */
 import Home from "./pages/Home/Home";
+import Detail from "./pages/Detail/Detail";
 
 /* theme */
 import ThemeDark from "./assets/styles/ThemeDark";
@@ -64,7 +62,7 @@ const App = props => {
           <Route exact path="/" render={() => <Home />} />
           <Route
             path="/country/:numericcode"
-            render={() => <div>detalhe</div>}
+            render={props => <Detail { ...props } />}
           />
           <Route path="/favs" render={() => <div>Favoritos</div>} />
         </Switch>

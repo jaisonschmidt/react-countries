@@ -10,10 +10,12 @@ export const Button = styled.button`
 export const ButtonRound = styled.button`
   background: none;
   border: 1px solid ${props => props.theme.scheme.$prcolor};
-  color: ${props => props.theme.scheme.$prcolor};
   border-radius: 5px;
+  color: ${props => props.theme.scheme.$prcolor};
+  cursor: pointer;
   display: inline-block;
-  margin-left: 8px;
+  margin-left: ${props => (props.marginLeft ? props.marginLeft : "8px")};
   margin-right: 8px;
+  margin-top: ${props => (props.marginTop ? props.marginTop : "0")};
   padding: 4px 8px;
 `;
